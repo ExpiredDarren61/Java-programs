@@ -1,0 +1,22 @@
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Main {
+    public static void main (String[] args) {
+        Map m = new TreeMap();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+        for (char i:sentence.toCharArray()) {
+            if (m.containsKey(i)) {
+                int old = (int) m.get(i);
+                m.put(i, old+1);
+            }
+            else {
+                m.put(i, 1);
+            }
+        }
+        m.remove(' ');
+        System.out.println(m);
+    }
