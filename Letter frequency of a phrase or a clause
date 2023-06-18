@@ -20,3 +20,4 @@ public class Main {
         m.remove(' ');
         System.out.println(m);
     }
+}
