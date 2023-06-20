@@ -1,58 +1,58 @@
 import java.util.Scanner;
-    public class Main {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Would you like to enter an array of strings or an array of integers?: ");
-            String ans = sc.nextLine();
-            System.out.print("How many items would you like to Enter?: ");
-            int items = sc.nextInt();
-            
-            if (ans.equals("integers")) {
-                int[] arr1 = new int[items] ;
-                int[] arr2 = new int[arr1.length];
+public class CopyArray {
+    public static void CopyArray() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Would you like to enter an array of strings or an array of integers?: ");
+        String ans = sc.nextLine();
+        System.out.print("How many items would you like to Enter?: ");
+        int items = sc.nextInt();
 
-                for (int i = 0; i < items; i++) {
-                    System.out.print("Enter a number: ");
-                    int num = sc.nextInt();
-                    arr1[i] = num;
-                }
-                for (int i = 0; i < arr1.length; i++) {
-                    arr2[i] = arr1[i];
-                }
-                System.out.print("Original List: [ ");
-                for (int i:arr1) {
-                    System.out.print(i + " ");
-                }
-                System.out.println("]");
-                System.out.print("New List: [ ");
-                for (int i:arr2) {
-                    System.out.print(i + " ");
-                }
-                System.out.println("]");
+        if (ans.equals("integers")) {
+            int[] arr1 = new int[items] ;
+            int[] arr2 = new int[arr1.length];
+
+            for (int i = 0; i < items; i++) {
+                System.out.print("Enter a number: ");
+                int num = sc.nextInt();
+                arr1[i] = num;
             }
-            else {
-
-                String[] arr1 = new String[items] ;
-                String[] arr2 = new String[arr1.length];
-
-                for (int i = 0; i < items; i++) {
-                    System.out.print("Enter a word: ");
-                    String word = sc.next();
-                    arr1[i] = word;
-                }
-                for (int i = 0; i < arr1.length; i++) {
-                    arr2[i] = arr1[i];
-                }
-                System.out.print("Original List: [ ");
-                for (String i:arr1) {
-                    System.out.print(i + " ");
-                }
-                System.out.println("]");
-                System.out.print("New List: [ ");
-                for (String i:arr2) {
-                    System.out.print(i + " ");
-                }
-                System.out.println("]");
+            for (int i = 0; i < arr1.length; i++) {
+                arr2[i] = arr1[i];
             }
+            System.out.print("Original List: [ ");
+            for (int i:arr1) {
+                System.out.print(i + " ");
+            }
+            System.out.println("]");
+            System.out.print("New List: [ ");
+            for (int i:arr2) {
+                System.out.print(i + " ");
+            }
+            System.out.println("]");
+        }
+        else {
+
+            String[] arr1 = new String[items] ;
+            String[] arr2 = new String[arr1.length];
+
+            for (int i = 0; i < items; i++) {
+                System.out.print("Enter a word: ");
+                String word = sc.next();
+                arr1[i] = word;
+            }
+            for (int i = 0; i < arr1.length; i++) {
+                arr2[i] = arr1[i];
+            }
+            System.out.print("Original List: [ ");
+            for (String i:arr1) {
+                System.out.print(i + " ");
+            }
+            System.out.println("]");
+            System.out.print("New List: [ ");
+            for (String i:arr2) {
+                System.out.print(i + " ");
+            }
+            System.out.println("]");
         }
     }
+}
