@@ -1,0 +1,36 @@
+import java.util.Scanner;
+    public class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a number: ");
+            int a = sc.nextInt();
+            System.out.print("Enter a number: ");
+            int b = sc.nextInt();
+            System.out.print("1. add \n2. subtract\n3. multiply\n4. divide\n5. remainder\nWhat would you like to do?: " );
+            int ans = sc.nextInt();
+            switch (ans) {
+                case 1 -> {
+                    int c = a + b;
+                    System.out.println(a + "+" + b + "=" + c);
+                }
+                case 2 -> {
+                    int d = a - b;
+                    System.out.println(a + "-" + b + "=" + d);
+                }
+                case 3 -> {
+                    int e = a * b;
+                    System.out.println(a + "x" + b + "=" + e);
+                }
+                case 4 -> {
+                    int f = a / b;
+                    System.out.println(a + "/" + b + "=" + f);
+                }
+                case 5 -> {
+                    int g = a % b;
+                    System.out.println(a + "%" + b + "=" + g);
+                }
+                default -> System.out.println("Invalid");
+            }
+
+        }
+    }
