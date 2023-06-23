@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main {
+
+    public static boolean isEven(int num) {
+        if (num%2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        if (isEven(num)) {
+            System.out.println("This is an even number");
+        }
+        else {
+            System.out.println("This is not an even number");
+        }
+    }
+}
