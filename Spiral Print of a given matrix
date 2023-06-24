@@ -1,0 +1,62 @@
+GIVEN MATRIX
+
+1 5 7 9 10 11 
+6 10 12 13 20 21 
+9 25 29 30 32 41 
+15 55 59 63 68 70 
+40 70 79 81 95 105 
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows  = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        int columns = sc.nextInt();
+        int[][] matrix = new int[rows][columns];
+
+        for(int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Enter a number: ");
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        int row_start = 0;
+        int row_end = rows - 1;
+        int column_start = 0;
+        int column_end = columns - 1;
+
+        while (row_start <= row_end && column_start <= column_end) {
+            for (int column = column_start; column <= column_end; column++) {
+                System.out.print(matrix[row_start][column] + " ");
+            }
+            row_start++;
+
+            for (int row = row_start; row <= row_end; row++) {
+                System.out.print(matrix[row][column_end] + " ");
+            }
+            column_end--;
+
+            for (int column = column_end; column >= column_start; column--) {
+                System.out.print(matrix[row_end][column] + " ");
+            }
+
+            row_end--;
+
+            for (int row = row_end; row >= row_start; row--) {
+                System.out.print(matrix[row][column_start] + " ");
+
+            }
+            column_start++;
+        }
+    }
+}
