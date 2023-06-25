@@ -7,35 +7,42 @@ GIVEN MATRIX
 40 70 79 81 95 105 
 
 import java.util.Scanner;
-public class Main {
+public class Strings {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows: ");
-        int rows  = sc.nextInt();
+        int rows = sc.nextInt();
         System.out.print("Enter number of columns: ");
         int columns = sc.nextInt();
         int[][] matrix = new int[rows][columns];
 
-        for(int i = 0; i < rows; i++) {
+        System.out.print("Enter in your numbers: ");
+
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.print("Enter a number: ");
                 matrix[i][j] = sc.nextInt();
             }
         }
 
+        System.out.println("\nMatrix: ");
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.print(matrix[i][j] + " ");
+                System.out.print (matrix[i][j] + " ");
             }
             System.out.println();
-        }
+         }
 
         int row_start = 0;
         int row_end = rows - 1;
         int column_start = 0;
         int column_end = columns - 1;
 
+        System.out.println("\nThe spiral print of this matrix is: ");
+
         while (row_start <= row_end && column_start <= column_end) {
+
             for (int column = column_start; column <= column_end; column++) {
                 System.out.print(matrix[row_start][column] + " ");
             }
@@ -49,14 +56,13 @@ public class Main {
             for (int column = column_end; column >= column_start; column--) {
                 System.out.print(matrix[row_end][column] + " ");
             }
-
             row_end--;
 
-            for (int row = row_end; row >= row_start; row--) {
+            for(int row = row_end; row >= row_start; row--) {
                 System.out.print(matrix[row][column_start] + " ");
-
             }
             column_start++;
         }
+
     }
 }
