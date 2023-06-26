@@ -1,1 +1,33 @@
+import java.util.Scanner;
+public class Strings {
 
+    public static int binaryToDecimal(String binary) {
+        return Integer.parseInt(binary,2);
+    }
+
+    public static String decimalToBinary(int decimal) {
+        return Integer.toBinaryString(decimal);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What would you like to do?: \n1. Binary to decimal\n2. Decimal to binary");
+        int ans = sc.nextInt();
+        if (ans == 1) {
+            System.out.print("Enter a binary number: ");
+            String binary = sc.next();
+            int x = binaryToDecimal(binary);
+            System.out.println(binary + " to decimal is: " + x);
+        }
+        else if (ans == 2) {
+            System.out.print("Enter a decimal: ");
+            int decimal = sc.nextInt();
+            String x = decimalToBinary(decimal);
+            System.out.println(decimal + " to binary is: " + x);
+        }
+        else {
+            System.out.println("Invalid");
+        }
+
+    }
+}
