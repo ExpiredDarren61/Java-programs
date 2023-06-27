@@ -1,9 +1,10 @@
+import java.util.Random;
 import java.util.Scanner;
 public class Main{
 
     public static void printArray(int[] arr) {
         //printing sorted array
-        System.out.print("Sorted Array: ");
+        System.out.print("\nSorted Array: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -11,14 +12,19 @@ public class Main{
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter size of array: ");
+        Random rand = new Random();
+
+        //setting size and bound of the array
+        System.out.print("Enter size of the array: ");
         int size = sc.nextInt();
+        System.out.print("Enter range of the numbers: ");
+        int bound = sc.nextInt();
+
+        //making the array
         int[] arr = new int[size];
 
-        //input
-        System.out.print("Enter your numbers: ");
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
+            arr[i] = rand.nextInt(bound);
         }
 
         //printing original array
@@ -29,18 +35,20 @@ public class Main{
 
 
         //time complexity = O(n^2)
-        //selection sort
-        for (int i = 0; i < arr.length - 1; i++) {
-            int smallest = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[smallest] > arr[j]) {
-                    smallest = j;
-                }
-
+        //insertion sort
+        for (int i = 1; i < arr.length; i++) {
+            //storing current value at a placeholder
+            int current = arr[i];
+            int j = i - 1;
+            while (j >= 0 && current < arr[j]) {
+                //shifting sorted element towards the right if it's bigger than the value we want to sort
+                arr[j + 1] = arr[j];
+                j--;
             }
-            int temp = arr[smallest];
-            arr[smallest] = arr[i];
-            arr[i] = temp;
+
+            //placement
+            arr[j + 1] = current;
+
         }
         printArray(arr);
     }
