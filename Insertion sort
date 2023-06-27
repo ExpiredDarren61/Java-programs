@@ -1,0 +1,56 @@
+import java.util.Random;
+import java.util.Scanner;
+public class Main{
+
+    public static void printArray(int[] arr) {
+        //printing sorted array
+        System.out.print("\nSorted Array: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        //setting size and bound of the array
+        System.out.print("Enter size of the array: ");
+        int size = sc.nextInt();
+        System.out.print("Enter range of the numbers: ");
+        int bound = sc.nextInt();
+
+        //making the array
+        int[] arr = new int[size];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(bound);
+        }
+
+        //printing original array
+        System.out.print("Original Array: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+
+        //time complexity = O(n^2)
+        //insertion sort
+        for (int i = 1; i < arr.length; i++) {
+            //storing current value at a placeholder
+            int current = arr[i];
+            int j = i - 1;
+            while (j >= 0 && current < arr[j]) {
+                //shifting sorted element towards the right if it's bigger than the value we want to sort
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            //placement
+            arr[j + 1] = current;
+
+        }
+        printArray(arr);
+    }
+}
+
